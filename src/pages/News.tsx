@@ -8,19 +8,22 @@ export default function News() {
     );
     const { data, loading } = response;
 
-    if (loading) return <Loading />;
-
     return (
-        <div className='flex flex-wrap justify-center items-center bg-[#12406e] mx-auto'>
+        <div className='flex flex-wrap flex-col justify-center items-center bg-[#12406e] mx-auto'>
             <h3 className='text-3xl font-bold leading-tight text-white text-center py-5'>
                 Top headlines
             </h3>
+
             <div className='grid sm:grid-cols-1 md:grid-cols-2 justify-center gap-4 m-auto pb-5'>
-                {data
-                    ? data.map((item: ArticleProps) => (
-                          <NewsItem key={item.title} {...item} />
-                      ))
-                    : null}
+                {loading ? (
+                    <>
+                        <Loading /> <Loading />
+                    </>
+                ) : data ? (
+                    data.map((item: ArticleProps) => (
+                        <NewsItem key={item.title} {...item} />
+                    ))
+                ) : null}
             </div>
         </div>
     );
