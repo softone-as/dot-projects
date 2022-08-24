@@ -1,5 +1,5 @@
 # Getting Started with iNews (DOT Project's pretest)
-This project a pretes for applied in DOT Indonesia, this project is built for get the newest information about Top Headlines of News in Indonesia, using open source [NewsAPI](https://newsapi.org/)
+This project is a pre-test for application in DOT Indonesia, this project is built to get the newest information about Top Headlines of News in Indonesia, using open source [NewsAPI](https://newsapi.org/)
 
 ## Available Scripts
 
@@ -7,7 +7,7 @@ In the project directory, you can run:
 
 ### `yarn install`
 
-This command will install all of dependencies that used in the project
+This command will install all of the dependencies that are used in the project
 
 ### `yarn start`
 
@@ -17,10 +17,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-## Login User
+## Authorization
 
-This app implement authorization, to access it please login with fake user
+This app implement authorization, there is public and private content, to access the private please login with the fake user.
+Public content is including *Home*
 
+### `Fake User's list`
 ```javascript
 [
   { username: 'user_dot', password: 'P@ssw0rd' },
