@@ -20,7 +20,7 @@ You will also see any lint errors in the console.
 ## Authorization
 
 This app implement authorization, there is public and private content, to access the private please login with the fake user.
-Public content is including *Home*
+Public content is including **Home Page**
 
 ### `Fake User's list`
 ```javascript
