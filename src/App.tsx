@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ProtectedRoute } from './helper';
 import Layout from './layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,11 +11,19 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Login />} />
-                <Route path='/' element={<Layout />}>
-                    <Route path='home' element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route
+                    path='/'
+                    element={
+                        <ProtectedRoute>
+                            <Layout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route index element={<Home />} />
                     <Route path='news' element={<News />} />
                     <Route path='news/:title' element={<NewsDetail />} />
+                    <Route path='*' element={<Navigate to='/' replace />} />
                 </Route>
             </Routes>
         </BrowserRouter>
