@@ -20,7 +20,11 @@ export default function Home() {
                         text='Get Started'
                         onClick={() => navigate('/news')}
                     />
-                    <Button variety='secondary' text='About Us' />
+                    <Button
+                        variety='secondary'
+                        text='About'
+                        onClick={() => navigate('/about')}
+                    />
                 </div>
             </div>
         </div>

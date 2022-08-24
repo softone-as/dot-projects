@@ -63,7 +63,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to='#' className={`${navItem}`}>
+                            <Link to='/about' className={`${navItem}`}>
                                 About
                             </Link>
                         </li>

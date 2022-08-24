@@ -1,3 +1,5 @@
+import profileImage from './../assets/profile.jpg';
+
 const About = () => {
     return (
         <div className='bg-[#092540] flex flex-wrap items-center justify-center'>
@@ -13,7 +15,7 @@ const About = () => {
                     <span className='block relative h-32 w-32'>
                         <img
                             alt='profile'
-                            src='https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png'
+                            src={profileImage}
                             className='mx-auto object-cover rounded-full h-24 w-24 bg-white p-1'
                         />
                     </span>
@@ -27,9 +29,8 @@ const About = () => {
                             Software Developer
                         </p>
                         <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores molestiae vitae odio non commodi
-                            itaque quisquam incidunt doloribus fugit nesciunt.
+                            What scares you is ignorance, learn to be brave and
+                            start making an impact.
                         </p>
                         <div className='justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200'>
                             <a
