@@ -1,4 +1,4 @@
-import { userData } from '../helper';
+import { historyObject, userData } from '../helper';
 
 export interface UserProps {
     username: string;
@@ -19,6 +19,7 @@ const login = ({ username, password }: UserProps) => {
 
 const logout = () => {
     localStorage.removeItem('user');
+    historyObject.replace('/login');
 };
 
 export const AuthService = {

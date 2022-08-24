@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export interface ArticleProps {
     author: string;
@@ -16,17 +16,7 @@ export interface SourceProps {
     name: string;
 }
 const NewsItem = (props: ArticleProps) => {
-    const navigate = useNavigate();
-    const {
-        author,
-        content,
-        description,
-        publishedAt,
-        source,
-        title,
-        url,
-        urlToImage,
-    } = props;
+    const { description, title, urlToImage } = props;
 
     return (
         <Link

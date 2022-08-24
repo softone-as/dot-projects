@@ -10,7 +10,6 @@ const Layout = () => {
                 role='main'
                 className='w-full min-h-full flex-grow overflow-auto'
             >
-                {/* {children} */}
                 <Outlet />
             </main>
             <Footer />

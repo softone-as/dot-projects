@@ -12,7 +12,7 @@ export default function NewsDetail() {
 
     return (
         <div className='flex flex-col flex-wrap w-2/4 mx-auto my-10'>
-            <div className='row-span-2 col-span-3'>
+            <div className='row-span-2 col-span-3 m-5'>
                 <h2 className='text-3xl font-bold leading-tight'>
                     {state.props.title}
                 </h2>
@@ -27,10 +27,12 @@ export default function NewsDetail() {
                     className='object-cover rounded w-full h-64 my-3'
                 />
             </div>
-            <p className='row-span-2 col-span-3'>{state.props.content}</p>
+            <p className='row-span-2 col-span-3 m-5'>{state.props.content}</p>
             <a
                 href={state.props.url}
-                className='col-span-3 text-violet-400 hover:text-violet-600 active:text-violet-700 mt-3'
+                className='col-span-3 m-5 text-violet-400 hover:text-violet-600 active:text-violet-700 mt-3'
+                target='_blank'
+                rel='noopener noreferrer'
             >
                 Lihat Selengkapnya
             </a>

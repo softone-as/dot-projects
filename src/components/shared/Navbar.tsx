@@ -1,17 +1,21 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { historyObject } from '../../helper';
+import { AuthService } from '../../services/AuthService';
 
 const Navbar = () => {
     const navItem =
         'block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 active:text-white dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent';
 
+    const isLoggedIn = localStorage.getItem('user');
+
     return (
         <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900'>
             <div className='container flex flex-wrap justify-between items-center mx-auto'>
-                <a href='https://flowbite.com/' className='flex items-center'>
+                <a href='#' className='flex items-center'>
                     <img
-                        src='https://flowbite.com/docs/images/logo.svg'
+                        src='https://cdn-icons-png.flaticon.com/512/258/258290.png'
                         className='mr-3 h-6 sm:h-9'
-                        alt='Flowbite Logo'
+                        alt='Logo'
                     />
                     <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
                         iNews
@@ -61,6 +65,17 @@ const Navbar = () => {
                         <li>
                             <Link to='#' className={`${navItem}`}>
                                 About
+                            </Link>
+                        </li>
+                        <li
+                            onClick={() =>
+                                isLoggedIn
+                                    ? AuthService.logout()
+                                    : historyObject.push('/login')
+                            }
+                        >
+                            <Link to='#' className={`${navItem}`}>
+                                {isLoggedIn ? 'Logout' : 'Login'}
                             </Link>
                         </li>
                     </ul>

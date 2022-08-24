@@ -1,7 +1,8 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { ProtectedRoute } from './helper';
 import Layout from './layout';
+import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import News from './pages/News';
@@ -9,24 +10,30 @@ import NewsDetail from './pages/NewsDetail';
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/login' element={<Login />} />
+        <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/' element={<Layout />}>
+                <Route index element={<Home />} />
                 <Route
-                    path='/'
+                    path='news'
                     element={
                         <ProtectedRoute>
-                            <Layout />
+                            <News />
                         </ProtectedRoute>
                     }
-                >
-                    <Route index element={<Home />} />
-                    <Route path='news' element={<News />} />
-                    <Route path='news/:title' element={<NewsDetail />} />
-                    <Route path='*' element={<Navigate to='/' replace />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+                />
+                <Route
+                    path='news/:title'
+                    element={
+                        <ProtectedRoute>
+                            <NewsDetail />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path='about' element={<About />} />
+                <Route path='*' element={<Navigate to='/' replace />} />
+            </Route>
+        </Routes>
     );
 }
 

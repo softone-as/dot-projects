@@ -1,5 +1,7 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { historyObject } from '../helper';
 import { AuthService, UserProps } from '../services/AuthService';
 
 export default function Login() {
@@ -19,12 +21,15 @@ export default function Login() {
     };
 
     const handleLogin = (props: UserProps) => {
+        const { username, password } = props;
+        if (username === '' && password === '')
+            return alert('Please fill the username and password input!');
         const isAuthenticated = AuthService.login(props);
         isAuthenticated ? navigate('/') : alert('Login Failed');
     };
 
     if (localStorage.getItem('user')) {
-        navigate('/');
+        historyObject.replace('/');
     }
 
     return (
@@ -32,7 +37,7 @@ export default function Login() {
             <div className='hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center'>
                 <div className='bg-black opacity-20 inset-0 z-0'></div>
                 <div className='w-full mx-auto px-20 flex-col items-center space-y-6'>
-                    <h1 className='text-white font-bold text-4xl font-sans'>
+                    <h1 className='text-white font-bold text-6xl font-sans'>
                         iNews
                     </h1>
                     <p className='text-white mt-1'>
@@ -45,7 +50,6 @@ export default function Login() {
                     <form
                         className='bg-white rounded-md shadow-2xl p-5'
                         onSubmit={(e: FormEvent) => {
-                            console.log(e);
                             e.preventDefault();
                             handleLogin(state);
                         }}

@@ -11,7 +11,7 @@ export default function News() {
     if (loading) return <Loading />;
 
     return (
-        <div className='articles bg-[#12406e]'>
+        <div className='flex flex-wrap justify-center items-center bg-[#12406e] mx-auto'>
             <h3 className='text-3xl font-bold leading-tight text-white text-center py-5'>
                 Top headlines
             </h3>
