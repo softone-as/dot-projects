@@ -20,11 +20,10 @@ export default function Login() {
         }));
     };
 
-    const handleLogin = (props: UserProps) => {
-        const { username, password } = props;
+    const handleLogin = ({ username, password }: UserProps) => {
         if (username === '' && password === '')
             return alert('Please fill the username and password input!');
-        const isAuthenticated = AuthService.login(props);
+        const isAuthenticated = AuthService.login({ username, password });
         isAuthenticated ? navigate('/') : alert('Login Failed');
     };
 
@@ -123,7 +122,7 @@ export default function Login() {
                                 href='#'
                                 className='text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all'
                             >
-                                Don't have an account yet?
+                                Don&apos;t have an account yet?
                             </a>
                         </div>
                     </form>
